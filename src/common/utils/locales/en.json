@@ -1,0 +1,15 @@
+{
+    "dashboard": "Dashboard",
+    "analytics": "Analytics",
+    "default": "Default",
+    "social-profile": "Social Profile",
+    "account-profile": "Account Profile",
+    "profile": "Profile",
+    "account-settings": "Account settings",
+    "logout": "Logout",
+    "manager": "Manager",
+    "user": "User",
+    "exams": "Exams",
+    "questions": "Questions",
+    "answers": "Answers"
+}
