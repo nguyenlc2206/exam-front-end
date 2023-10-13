@@ -91,7 +91,7 @@ export const JWTProvider = ({ children }: { children: React.ReactElement }) => {
         const res = await authServices.login({ email: email, password: password } as KeyedObject);
 
         if (res.isFailure()) return failure(res.error);
-        console.log('>>>Check res:', res.data);
+        // console.log('>>>Check res:', res.data);
 
         /** processing data */
         const { accessToken: serviceToken, user: user } = res.data;
