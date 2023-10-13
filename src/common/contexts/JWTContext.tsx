@@ -29,10 +29,10 @@ const initialState: InitialLoginContextProps = {
 
 const setSession = (serviceToken?: string | null) => {
     if (serviceToken) {
-        localStorage.setItem('serviceToken', serviceToken);
+        window.localStorage.setItem('serviceToken', serviceToken);
         axios.defaults.headers.common.Authorization = `Bearer ${serviceToken}`;
     } else {
-        localStorage.removeItem('serviceToken');
+        window.localStorage.removeItem('serviceToken');
         delete axios.defaults.headers.common.Authorization;
     }
 };
@@ -45,8 +45,6 @@ export const JWTProvider = ({ children }: { children: React.ReactElement }) => {
     const authServices = new AuthServicesImpl(new AuthRepositoryImpl());
 
     const [state, dispatch] = useReducer(authReducer, initialState);
-
-    const navigate = useNavigate();
 
     /** initial function */
     const handleInitial = async () => {
@@ -91,7 +89,9 @@ export const JWTProvider = ({ children }: { children: React.ReactElement }) => {
 
     const login = async (email: string, password: string): Promise<Either<string, AppError>> => {
         const res = await authServices.login({ email: email, password: password } as KeyedObject);
+
         if (res.isFailure()) return failure(res.error);
+        console.log('>>>Check res:', res.data);
 
         /** processing data */
         const { accessToken: serviceToken, user: user } = res.data;

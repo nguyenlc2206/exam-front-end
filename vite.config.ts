@@ -23,6 +23,9 @@ export default defineConfig(({ command, mode }) => {
             plugins: [react({ include: '**/*.tsx' })],
             resolve: {
                 alias: [{ find: '@package:src', replacement: path.resolve(__dirname, 'src') }]
+            },
+            define: {
+                'process.env.APP_API_URL': JSON.stringify(env.APP_API_URL)
             }
         };
     }
