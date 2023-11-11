@@ -15,7 +15,7 @@
     "dependencies": {
         "@hello-pangea/dnd": "^16.3.0",
         "@mui/x-tree-view": "^6.0.0-beta.0",
-        "axios": "^1.5.0",
+        "axios": "^1.6.0",
         "chance": "^1.1.11",
         "eslint-config-prettier": "^9.0.0",
         "eslint-plugin-prettier": "^5.0.0",
